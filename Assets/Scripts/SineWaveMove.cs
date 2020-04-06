@@ -17,6 +17,7 @@ public class SineWaveMove : MonoBehaviour
 
     void Update()
     {
+        // Set the move direction based on the selected axis.
         Vector3 moveDirection = Vector3.zero;
         switch( this.axis )
         {
@@ -33,6 +34,7 @@ public class SineWaveMove : MonoBehaviour
                 break;
         }
 
+        // Do the actual move.
         this.transform.position += moveDirection * Time.deltaTime * this.moveDistance * Mathf.Sin( Time.time *this.moveSpeed );
     }
 }

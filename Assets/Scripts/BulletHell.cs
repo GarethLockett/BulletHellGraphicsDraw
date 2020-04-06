@@ -9,9 +9,8 @@ using UnityEngine.UI;
 
                     NOTES:
                             - Gets around 60fps with 5000 bullets on Samsung S10e.
-                            - Could be faster to use Unity Jobs/threading for this sort of task (and/or ECS .. and Burst compiler)
-                            - Could also be worth using Graphics.DrawMeshInstancedIndirect using ComputerBuffers.
-                            - May also be possible to use a Compute + Geometry shader for drawing (Although not sure how to do collision detection then?)
+                            - Could possibly be faster to use Unity Jobs for this sort of task (and/or ECS / Burst compiler)
+                            - Could also be worth trying with Graphics.DrawMeshInstanced or Graphics.DrawMeshInstancedIndirect.
 */
 
 public class BulletHell : MonoBehaviour
@@ -57,6 +56,7 @@ public class BulletHell : MonoBehaviour
         if( this.numberText != null ) { this.numberText.text = "#Bullets: " +this.numberOfBullets; }
     }
 
+    // This method recycles the bullet.
     private void ResetBullet( ref Bullet bullet )
     {
         // Reset the bullet position.
